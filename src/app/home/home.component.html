@@ -1,18 +1,3 @@
-<div *ngIf="user | async">
- 
-
-  <div>Primary address: {{ (addresses | async)?.primaryAddress }}</div>
-
-  <div>
-    Other addresses:
-    <ul>
-      <li *ngFor="let otherAddress of (addresses | async)?.otherAddresses">
-        {{ otherAddress }}
-      </li>
-    </ul>
-  </div>
-</div>
-<div></div>
 <div class="form-group">
   <section class="content">
     <div class="container-fluid">
@@ -151,7 +136,7 @@
                 </div>
                 <div class="card-body">
                   <canvas
-                    id="ผู้ป่วยรายเดือน"
+                    id="Monthly"
                     style="
                       min-height: 250px;
                       height: 250px;
@@ -170,7 +155,7 @@
                 </div>
                 <div class="card-body">
                   <canvas
-                    id="เพศ"
+                    id="Gender"
                     style="
                       min-height: 250px;
                       height: 250px;
@@ -188,7 +173,7 @@
                 </div>
                 <div class="card-body">
                   <canvas
-                    id="ผลการวินิจฉัยโรค"
+                    id="Diagnosis"
                     style="
                       min-height: 250px;
                       height: 250px;
@@ -206,7 +191,7 @@
                 </div>
                 <div class="card-body">
                   <canvas
-                    id="กลุ่มอายุ"
+                    id="Agegroup"
                     style="
                       min-height: 250px;
                       height: 250px;
@@ -248,7 +233,7 @@
                 </div>
                 <div class="card-body">
                   <canvas
-                    id="แนวโน้มการปฎิบัติงานตามาตรฐานเทียบกับเวลา"
+                    id="Time"
                     style="
                       min-height: 250px;
                       height: 250px;
@@ -266,7 +251,7 @@
                 </div>
                 <div class="card-body">
                   <canvas
-                    id="สัดส่วนผลการปฎิบัติงาน"
+                    id="Performanceratio"
                     style="
                       min-height: 250px;
                       height: 250px;

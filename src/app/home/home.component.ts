@@ -106,8 +106,8 @@ export class HomeComponent implements OnInit {
     });
 
     //ผู้ป่วยรายเดือน//
-    const monthly = document.getElementById("ผู้ป่วยรายเดือน");
-    const ผู้ป่วยรายเดือน = new Chart(monthly, {
+    const monthly = document.getElementById("Monthly");
+    const Monthly = new Chart(monthly, {
       type: "line",
       data: {
         labels: [
@@ -178,8 +178,8 @@ export class HomeComponent implements OnInit {
 
     //เพศ//
 
-    var gender = document.getElementById("เพศ");
-    var เพศ = new Chart(gender, {
+    var gender = document.getElementById("Gender");
+    var Gender = new Chart(gender, {
       type: "doughnut",
 
       data: {
@@ -199,8 +199,8 @@ export class HomeComponent implements OnInit {
     });
 
     //ผลการวินิจฉัยโรค//
-    var diagnosis = document.getElementById("ผลการวินิจฉัยโรค");
-    var ผลการวินิจฉัยโรค = new Chart(diagnosis, {
+    var diagnosis = document.getElementById("Diagnosis");
+    var Diagnosis = new Chart(diagnosis, {
       type: "pie",
 
       data: {
@@ -220,8 +220,8 @@ export class HomeComponent implements OnInit {
     });
 
     //จำนวณของผู้ป่วยปีงบประมาณ//
-    const agegroup = document.getElementById("กลุ่มอายุ");
-    const กลุ่มอายุ = new Chart(agegroup, {
+    const agegroup = document.getElementById("Agegroup");
+    const Agegroup = new Chart(agegroup, {
       type: "bar",
       data: {
         labels: ["0-11", "12-24", "25-30", "30-44", "=>45"],
@@ -273,13 +273,13 @@ export class HomeComponent implements OnInit {
     });
 
     var time = document.getElementById(
-      "แนวโน้มการปฎิบัติงานตามาตรฐานเทียบกับเวลา"
+      "Time"
     );
     const time_nums = [31, 74, 6, 39, 20, 85, 7, 40, 30, 20, 90, 60];
     const time_nums2 = [12, 5, 40, 3, 48, 70, 4, 60, 60, 50, 1, 0];
     const time_nums3 = [82, 66, 9, 99, 4, 2, 5, 46, 85, 10, 65, 40];
 
-    var แนวโน้มการปฎิบัติงานตามาตรฐานเทียบกับเวลา = new Chart(time, {
+    var Time = new Chart(time, {
       type: "line",
       data: {
         labels: [
@@ -411,8 +411,8 @@ export class HomeComponent implements OnInit {
     });
 
     //สัดส่วนผลการปฎิบัติงาน//
-    const Performanceratio = document.getElementById("สัดส่วนผลการปฎิบัติงาน");
-    const สัดส่วนผลการปฎิบัติงาน = new Chart(Performanceratio, {
+    const performanceratio = document.getElementById("Performanceratio");
+    const Performanceratio = new Chart(performanceratio, {
       type: "doughnut",
 
       data: {
