@@ -1,0 +1,312 @@
+<div *ngIf="user | async">
+ 
+
+  <div>Primary address: {{ (addresses | async)?.primaryAddress }}</div>
+
+  <div>
+    Other addresses:
+    <ul>
+      <li *ngFor="let otherAddress of (addresses | async)?.otherAddresses">
+        {{ otherAddress }}
+      </li>
+    </ul>
+  </div>
+</div>
+<div></div>
+<div class="form-group">
+  <section class="content">
+    <div class="container-fluid">
+      <div class="d-flex flex-row-reverse bd-highlight">
+        <div class="row">
+          <mat-form-field appearance="fill" class="example-form-field">
+            <mat-label>วันเริ่มต้น - วันสิ้นสุด</mat-label>
+            <mat-date-range-input [rangePicker]="rangePicker">
+              <input matStartDate placeholder="start date" />
+              <input matEndDate placeholder="end date" />
+            </mat-date-range-input>
+
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="rangePicker"
+            ></mat-datepicker-toggle>
+            <mat-date-range-picker #rangePicker>
+              <mat-date-range-picker-actions>
+                <button mat-button matDateRangePickerCancel>Cancel</button>
+                <button
+                  mat-raised-button
+                  color="primary"
+                  matDateRangePickerApply
+                >
+                  Apply
+                </button>
+              </mat-date-range-picker-actions>
+            </mat-date-range-picker>
+          </mat-form-field>
+
+          <div class="form-group">
+            <div class="input-group input-group-lg">
+              <div class="d-flex align-items-end">
+                <div class="col-md-3">
+                  <select
+                    class="form-control select2 select2-hidden-accessible"
+                    data-select2-id="1"
+                    tabindex="-1"
+                    aria-hidden="true"
+                  >
+                    <option selected="selected" data-select2-id="3">
+                      --เลือก สสจ.--
+                    </option>
+                    <option data-select2-id="1">---1---</option>
+                    <option data-select2-id="1">---2---</option>
+                  </select>
+                </div>
+
+                <div class="col-md-3">
+                  <select
+                    class="form-control select2 select2-hidden-accessible"
+                    data-select2-id="1"
+                    tabindex="-1"
+                    aria-hidden="true"
+                    disabled=""
+                  >
+                    <option selected="selected" data-select2-id="3">
+                      --เลือก สสอ.--
+                    </option>
+                    <option data-select2-id="2">---1---</option>
+                    <option data-select2-id="2">---2---</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <select
+                    class="form-control select2 select2-hidden-accessible"
+                    data-select2-id="1"
+                    tabindex="-1"
+                    aria-hidden="true"
+                  >
+                    <option selected="selected" data-select2-id="3">
+                      --เลือก อปท.--
+                    </option>
+                    <option data-select2-id="3">---1---</option>
+                    <option data-select2-id="3">---2---</option>
+                  </select>
+                </div>
+                <div class="float-right">
+                  <button type="submit" class="btn btn-default">
+                    <i class="fas fa-pencil-alt"></i> ค้นหา
+                  </button>
+
+                  <button type="submit" class="btn btn">ยกเลิก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <div class="card card-info">
+        <div class="card-header">
+          <h3 class="card-title">ข้อมูลกรณีผู้ป่วย</h3>
+          <div class="card-tools">
+            <button
+              type="button"
+              class="btn btn-tool"
+              data-card-widget="collapse"
+            >
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <!-- /.card-header -->
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6">
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">จำนวณของผู้ป่วยปีงบประมาณ</h3>
+                </div>
+                <div class="card-body">
+                  <canvas
+                    id="Budget"
+                    style="
+                      min-height: 250px;
+                      height: 250px;
+                      max-height: 250px;
+                      max-width: 100%;
+                    "
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">ผู้ป่วยรายเดือน</h3>
+                </div>
+                <div class="card-body">
+                  <canvas
+                    id="ผู้ป่วยรายเดือน"
+                    style="
+                      min-height: 250px;
+                      height: 250px;
+                      max-height: 250px;
+                      max-width: 100%;
+                    "
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">เพศ</h3>
+                </div>
+                <div class="card-body">
+                  <canvas
+                    id="เพศ"
+                    style="
+                      min-height: 250px;
+                      height: 250px;
+                      max-height: 250px;
+                      max-width: 100%;
+                    "
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">ผลการวินิจฉัยโรค</h3>
+                </div>
+                <div class="card-body">
+                  <canvas
+                    id="ผลการวินิจฉัยโรค"
+                    style="
+                      min-height: 250px;
+                      height: 250px;
+                      max-height: 250px;
+                      max-width: 100%;
+                    "
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">กลุ่มอายุ</h3>
+                </div>
+                <div class="card-body">
+                  <canvas
+                    id="กลุ่มอายุ"
+                    style="
+                      min-height: 250px;
+                      height: 250px;
+                      max-height: 250px;
+                      max-width: 100%;
+                    "
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+      <div class="card card-info">
+        <div class="card-header">
+          <h3 class="card-title">ข้อมูลผลการปฎิบัติงาน</h3>
+          <div class="card-tools">
+            <button
+              type="button"
+              class="btn btn-tool"
+              data-card-widget="collapse"
+            >
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <!-- /.card-header -->
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6">
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    แนวโน้มการปฎิบัติงานตามาตรฐานเทียบกับเวลา
+                  </h3>
+                </div>
+                <div class="card-body">
+                  <canvas
+                    id="แนวโน้มการปฎิบัติงานตามาตรฐานเทียบกับเวลา"
+                    style="
+                      min-height: 250px;
+                      height: 250px;
+                      max-height: 250px;
+                      max-width: 100%;
+                    "
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">สัดส่วนผลการปฎิบัติงาน</h3>
+                </div>
+                <div class="card-body">
+                  <canvas
+                    id="สัดส่วนผลการปฎิบัติงาน"
+                    style="
+                      min-height: 250px;
+                      height: 250px;
+                      max-height: 250px;
+                      max-width: 100%;
+                    "
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card card-info">
+        <div class="card-header">
+          <h3 class="card-title">แผนที่จำนวนผู้ป่วย</h3>
+
+          <div class="card-tools">
+            <button
+              type="button"
+              class="btn btn-tool"
+              data-card-widget="collapse"
+            >
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div
+            style="height: 124vh"
+            leaflet
+            [leafletOptions]="options"
+            (leafletMapReady)="onMapReady($event)"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
